@@ -1,0 +1,67 @@
+@import "bourbon";
+@import "base/grid-settings";
+@import "neat";
+@import "base/base";
+
+@import "components/code";
+
+body {
+  background-color: $base-background-color;
+}
+
+.wrap {
+  @include outer-container;
+}
+
+.header {
+  @include position(fixed, 0 0 auto 0);
+  @include size(100% 62px);
+  border-bottom: 1px solid $base-border-color;
+  background-color: rgba($lightest-gray, .95);
+}
+
+.logo {
+  @include span-columns(3);
+}
+
+.main-nav {
+  @include span-columns(9);
+  padding-top: em(18);
+  li {
+    display: inline;
+    float: left;
+    margin-right: 2em;
+  }
+}
+
+.main {
+  @include span-columns(9);
+  @include shift(3);
+  padding: 62px 0 48px;
+}
+
+.side-col {
+  @include position(fixed, 62px auto 0);
+  padding: em(42) 0 em(12);
+  width: flex-grid(3, 12);
+  max-width: 222px;
+}
+
+.page-title {
+  padding: em(24) 0 em(12);
+  margin-bottom: em(28);
+  border-bottom: 1px dotted $base-border-color;
+}
+
+.panel {
+  margin: $base-spacing 0;
+  padding: em(18) em(30) em(8);
+  background-color: #fff;
+  border-left: 4px solid $base-border-color;
+
+  &.warning {
+    border-color: $warning-color;
+    background-color: mix($warning-color, #fff, 10%);
+    h3 { color: $warning-color; }
+  }
+}

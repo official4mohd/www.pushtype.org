@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<!--[if (lt IE 9)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title><%= @item[:title] %> - PushType</title>
+  <meta name="description" content="<%= @item[:desc] %>">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic,400|Anonymous+Pro:400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <link rel="shortcut icon" href="/assets/favicon.png">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap">
+      <div class="logo">
+        LOGO
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="comm"><a href="http://discuss.pushtype.org">Community</a></li>
+          <li class="code"><a href="https://github.com/pushcode/push_type">Source code</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main">
+      <header class="page-title">
+        <h1><%= @item[:title] %></h1>
+        <p class="subheader"><%= @item[:subtitle] %></p>
+      </header>
+      <%= yield %>
+    </main>
+  </div>
+
+  <script src="/assets/application.js"></script>
+</body>
+</html>
