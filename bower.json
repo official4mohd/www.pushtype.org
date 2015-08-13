@@ -1,0 +1,21 @@
+{
+  "name": "push_type_docs",
+  "version": "0.0.0",
+  "authors": [
+    "Aaron Russell <aaron@gc4.co.uk>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "jquery": "1.11.3"
+  },
+  "dependencies": {
+    "jquery": "1.11.3"
+  }
+}

@@ -1,4 +1,5 @@
 #{$all-button-inputs},
+a.button,
 button {
   @include appearance(none);
   -webkit-font-smoothing: antialiased;
@@ -27,5 +28,12 @@ button {
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+
+  &.success {
+    background-color: $success-color;
+    &:hover, &:focus {
+      background-color: darken($success-color, 15%);
+    }
   }
 }

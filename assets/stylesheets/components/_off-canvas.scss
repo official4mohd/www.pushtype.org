@@ -1,0 +1,58 @@
+.side-col {
+  @include position(fixed, 62px auto 0 0);
+  @include size(260px 100%);
+  @include transform(translateX(-260px));
+  @include transition(transform 0.25s linear);
+  z-index: 2;
+  padding: em(24) em(20);
+  background-color: rgba(#fff, 0.9);
+  border-right: 1px solid $base-border-color;
+
+  .nav-active & {
+    @include transform(translateX(0));
+  }
+
+  @include media($medium-screen-up) {
+    @include transform(translateX(0));
+    left: auto;
+    width: flex-grid(3, 12);
+    max-width: 215px;
+    padding: em(50) 0 em(12);
+    background-color: transparent;
+    border-right: none;
+  }
+}
+
+.nav-toggle {
+  @include position(fixed, 100px auto 0);
+  a {
+    color: $brand-blue;
+    &:hover { color: darken($brand-blue, 15%); }
+  }
+  .ficon:before {
+    font-size: 32px;
+  }
+  @include media($medium-screen-up) {
+    display: none;
+  }
+}
+
+.nav-overlay {
+  @include position(fixed, 62px 0px 0px 0px);
+  @include transition(opacity 0.5s);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  background: #efefef;
+
+  .nav-active & {
+    opacity: 0.80;
+    visibility: visible;
+  }
+  @include media($medium-screen-up) {
+    .nav-active & {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

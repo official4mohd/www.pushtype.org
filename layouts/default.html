@@ -11,49 +11,52 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
 
-  <link href='http://fonts.googleapis.com/css?family=Lato:300,300italic,400|Anonymous+Pro:400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,300italic,400,900|Anonymous+Pro:400">
   <link rel="stylesheet" href="/assets/application.css">
 
-  <link rel="shortcut icon" href="/assets/favicon.png">
+  <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
   <meta http-equiv="cleartype" content="on">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
 </head>
-<body>
+<body class="<%= body_class %>">
   <header class="header">
     <div class="wrap">
       <div class="logo">
-        LOGO
+        <a href="/"><img src="/assets/pushtype-icon.png" srcset="/assets/pushtype-icon@2x.png 2x" alt="PushType" class="logo-sm"></a>
+        <a href="/"><img src="/assets/pushtype-logo.png" srcset="/assets/pushtype-logo@2x.png 2x" alt="PushType" class="logo-lg"></a>
       </div>
       <nav class="main-nav">
         <ul>
           <li class="docs"><a href="/docs/introduction">Documentation</a></li>
           <li class="comm"><a href="http://discuss.pushtype.org">Community</a></li>
-          <li class="code"><a href="https://github.com/pushcode/push_type">Source code</a></li>
+        </ul>
+        <ul class="utility">
+          <li><a href="https://twitter.com/pushtype" title="Source code"><%= ficon :social_twitter %></a></li>
+          <li><a href="https://github.com/pushcode/push_type" title="Source code"><%= ficon :social_github %></a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <div class="wrap">
-    <div class="side-col">
-      <nav class="side-nav">
-        <h4>Getting started</h4>
-        <ul>
-          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <main class="main">
-      <header class="page-title">
-        <h1><%= @item[:title] %></h1>
-        <p class="subheader"><%= @item[:subtitle] %></p>
-      </header>
+  <div class="body">
+    <div class="wrap">
       <%= yield %>
-    </main>
+    </div>
   </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="copy">
+        <p>The PushType CMS is free software, lovingly <a href="http://www.pushcode.com">developed by Push Code</a>, and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+        <p>The content of the PushType website is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike License</a>.</p>
+        <p>PushType &copy; 2015 Push Code Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
 
   <script src="/assets/application.js"></script>
 </body>

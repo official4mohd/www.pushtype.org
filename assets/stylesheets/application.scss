@@ -3,10 +3,12 @@
 @import "neat";
 @import "base/base";
 
-@import "components/code";
+@import "components/highlight";
+@import "components/foundation-icons";
+@import "components/off-canvas";
 
 body {
-  background-color: $base-background-color;
+  margin: 0;
 }
 
 .wrap {
@@ -16,35 +18,85 @@ body {
 .header {
   @include position(fixed, 0 0 auto 0);
   @include size(100% 62px);
+  z-index: 3;
+  padding: 0 $gutter/2;
   border-bottom: 1px solid $base-border-color;
   background-color: rgba($lightest-gray, .95);
 }
 
 .logo {
-  @include span-columns(3);
+  @include position(absolute);
+  padding-top: em(14);
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .logo-lg { display: none; }
+
+  @include media($medium-screen-up) {
+    @include position(static);
+    @include span-columns(3);
+    .logo-sm { display: none; }
+    .logo-lg { display: block; }
+  }
 }
 
 .main-nav {
-  @include span-columns(9);
   padding-top: em(18);
+  padding-left: em(48);
+  ul {
+    display: inline;
+    float: left;
+    &.utility {
+      float: right;
+    }
+  }
   li {
     display: inline;
     float: left;
     margin-right: 2em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .utility li {
+    margin-right: 1em;
+  }
+  @include media($medium-screen-up) {
+    @include span-columns(9);
+    padding-left: 0;
   }
 }
 
-.main {
-  @include span-columns(9);
-  @include shift(3);
-  padding: 62px 0 48px;
+.body {
+  background-color: $base-background-color;
+  padding: 0 $gutter/2;
 }
 
-.side-col {
-  @include position(fixed, 62px auto 0);
-  padding: em(42) 0 em(12);
-  width: flex-grid(3, 12);
-  max-width: 222px;
+.main {
+  padding: em(62) 0 em(48) em(48);
+
+  @include media($medium-screen-up) {
+    @include span-columns(9);
+    @include shift(3);
+    padding-left: 0;
+  }
+}
+
+.main-wide {
+  padding: em(62) 0 em(48);
+  overflow: auto;
+}
+
+.footer {
+  padding: em(48) $gutter/2;
+  background-color: #fff;
+  border-top: 1px dotted $base-border-color;
+
+  .copy {
+    max-width: flex-grid(9, 12);
+    margin: 0 auto;
+  }
 }
 
 .page-title {
@@ -55,7 +107,7 @@ body {
 
 .panel {
   margin: $base-spacing 0;
-  padding: em(18) em(30) em(8);
+  padding: em(18) em(30) em(12);
   background-color: #fff;
   border-left: 4px solid $base-border-color;
 
@@ -63,5 +115,27 @@ body {
     border-color: $warning-color;
     background-color: mix($warning-color, #fff, 10%);
     h3 { color: $warning-color; }
+  }
+}
+
+.jumbo-panel {
+  margin-bottom: $base-spacing;
+  text-align: center;
+
+  .inner {
+    max-width: $medium-screen;
+    margin: 0 auto;
+  }
+  .cta {
+    .button {
+      margin: 0 em(4, 24) em(8, 24);
+      font-size: em(24);
+    }
+  }
+}
+
+.hp-col {
+  @include media($medium-screen-up) {
+    @include span-columns(6);
   }
 }

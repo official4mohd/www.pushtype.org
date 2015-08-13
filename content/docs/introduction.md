@@ -34,11 +34,6 @@ Many CMS products are pitched towards website owners and designed accordingly. *
   </ul>
 </div>
 
-    #!ruby
-    class Manufacturer < PushType::Taxonomy
-      unexpose!
-    end
-
 ## What next?
 
 * [Get started and install PushType](/docs/installation)

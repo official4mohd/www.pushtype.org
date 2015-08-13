@@ -20,6 +20,7 @@ compile '/docs/*/' do
   filter :erb
   filter :kramdown
   filter :colorize_syntax, default_colorizer: :rouge
+  layout 'docs'
   layout 'default'
 end
 

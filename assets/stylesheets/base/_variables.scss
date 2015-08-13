@@ -23,6 +23,8 @@ $medium-gray: #666666;
 $light-gray: #ddd;
 $lightest-gray: #FAFAFA;
 
+$brand-blue: #3BB5EF;
+
 $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
@@ -40,3 +42,8 @@ $base-border: 1px solid $base-border-color;
 // Forms
 $form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+
+// Nav items
+$main-nav-items: 'docs', 'comm';
+$docs-nav-items: 'introduction', 'installation', 'key-concepts', 'configuration';

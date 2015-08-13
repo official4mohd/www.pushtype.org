@@ -1,0 +1,25 @@
+<div class="nav-toggle" data-nav-toggle>
+  <a href="#menu" title="Menu"><%= ficon :list %></a>
+</div>
+<div class="side-col">
+  <nav class="side-nav">
+    <h4>Getting started</h4>
+    <ul>
+      <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+      <li class="installation"><a href="/docs/installation">Installation</a></li>
+      <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+    </ul>
+    <h4>Documentation</h4>
+    <ul>
+      <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main class="main">
+  <header class="page-title">
+    <h1><%= @item[:title] %></h1>
+    <p class="subheader"><%= @item[:subtitle] %></p>
+  </header>
+  <%= yield %>
+</main>

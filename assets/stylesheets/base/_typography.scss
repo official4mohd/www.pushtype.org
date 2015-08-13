@@ -23,9 +23,21 @@ h6 {
 
 h1 {
   font-size: em(44);
-  .page-title & { margin: 0 0 $small-spacing/6; }
+  .page-title & {
+    margin: 0 0 $small-spacing/6;
+  }
+  .jumbo-panel & {
+    font-size: em(72);
+    font-weight: 900;
+    margin-top: $small-spacing;
+  }
 }
-h2 { font-size: em(27); }
+h2 {
+  font-size: em(27);
+  .jumbo-panel & {
+    margin-bottom: $base-spacing;
+  }
+}
 h3 {
   font-size: em(24);
   .panel & {
@@ -38,23 +50,50 @@ h3 {
 }
 h4 {
   font-size: em(21);
-  .side-nav & {
-    margin-top: 0;
-    font-size: 1em;
-    font-weight: 400;
-    color: $medium-gray;
-  }
 }
 h5 { font-size: em(18); }
 h6 { font-size: 1em; }
 
 p {
   margin: 0 0 $small-spacing;
+
+  .copy & {
+    font-size: em(13);
+    text-align: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
-.main-nav ul {
-  font-size: 1em;
-  line-height: em(24);
+%active-nav {
+  font-weight: 400;
+  color: darken($action-color, 15%);
+}
+
+.main-nav { 
+  ul {
+    font-size: 1em;
+    line-height: em(24);
+  }
+  @each $item in $main-nav-items {
+    .#{ $item } & .#{ $item } { @extend %active-nav; }
+  }
+}
+
+.side-nav {
+  h4 {
+    margin-top: 0;
+    font-size: em(18);
+  }
+  ul {
+    margin-bottom: $base-spacing;
+    line-height: 1.75em;
+  }
+  @each $item in $docs-nav-items {
+    .#{ $item } & .#{ $item } { @extend %active-nav; }
+  }
 }
 
 .subheader {
