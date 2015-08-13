@@ -1,10 +1,13 @@
 require 'rubygems'
 require 'rack/contrib/try_static'
 require 'rack/rewrite'
-#require './app'
 
-# Use Sinatra based contact app
-#use MiniSiteApp
+# Use rack redirect
+use Rack::Rewrite do
+  if ENV['RACK_ENV'] == 'production'
+    r301 %r{.*}, 'http://www.pushtype.org$&', :if => ->(rack_env) { rack_env['SERVER_NAME'] != 'www.pushtype.org' }
+  end
+end
 
 # The static files
 use Rack::TryStatic, root: 'output', urls: [''], :try => ['.html', 'index.html', '/index.html']
