@@ -7,6 +7,10 @@
 @import "components/foundation-icons";
 @import "components/off-canvas";
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   background-color: $base-background-color;
@@ -75,7 +79,9 @@ body {
 
 .body {
   padding: 0 $gutter/2;
+  min-height: 100%;
 }
+
 
 .main {
   padding: em(62) 0 em(48) em(48);

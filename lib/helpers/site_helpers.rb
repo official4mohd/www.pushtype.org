@@ -1,7 +1,15 @@
 module SiteHelpers
 
+  def page_title
+    case @item.identifier
+      when /^\/docs/  then "#{ @item[:title] } - PushType Docs"
+      when '/'        then @item[:title]
+      else "#{ @item[:title] } - PushType"
+    end
+  end
+
   def meta_tag(sym)
-    %Q( <meta name="#{ sym.to_s }" content="#{ @item[:desc] }">) if @item[sym]
+    %Q( <meta name="#{ sym.to_s }" content="#{ @item[sym] }">) if @item[sym]
   end
 
   def body_class(*args)

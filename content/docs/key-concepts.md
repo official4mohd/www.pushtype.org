@@ -42,5 +42,5 @@ It won't be long before you'll want to write your own custom fields. That's made
 
 These three concepts - the tree-like content hierarchy, the custom node types and custom field types - combine to create an infinitely flexibly system. Complex structures of content can be thrown together with just a few lines of code and a few more minutes work.
 
-* Learn more about nodes
-* Learn more about custom fields
+* [Learn more about nodes](/docs/nodes)
+* [Learn more about custom fields](/docs/fields)

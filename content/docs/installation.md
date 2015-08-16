@@ -48,5 +48,5 @@ At this point, you can fire up your application and start poking around in the a
 
 However, you won't be able to create any content yet. You need to start generating node types.
 
-* [Understand the key concepts behind PushType](doc:key-concepts)
-* Generate your first node type
+* [Understand the key concepts behind PushType](/docs/key-concepts)
+* [Generate your first node type](/docs/nodes)
