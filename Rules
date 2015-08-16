@@ -24,6 +24,12 @@ compile '/docs/*/' do
   layout 'default'
 end
 
+compile '/' do
+  filter :erb
+  layout 'homepage'
+  layout 'default'
+end
+
 compile '*' do
   unless item.binary?
     filter :erb

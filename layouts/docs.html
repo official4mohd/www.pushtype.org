@@ -1,25 +1,46 @@
-<div class="nav-toggle" data-nav-toggle>
-  <a href="#menu" title="Menu"><%= ficon :list %></a>
-</div>
-<div class="side-col">
-  <nav class="side-nav">
-    <h4>Getting started</h4>
-    <ul>
-      <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
-      <li class="installation"><a href="/docs/installation">Installation</a></li>
-      <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
-    </ul>
-    <h4>Documentation</h4>
-    <ul>
-      <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
-    </ul>
-  </nav>
-</div>
+<div class="body">
+  <div class="wrap">
+    <div class="nav-toggle" data-nav-toggle>
+      <a href="#menu" title="Menu"><%= ficon :list %></a>
+    </div>
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+          <li class="installation"><a href="/docs/installation">Installation</a></li>
+          <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+        </ul>
+        <h4>Documentation</h4>
+        <ul>
+          <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+        </ul>
+      </nav>
+    </div>
 
-<main class="main">
-  <header class="page-title">
-    <h1><%= @item[:title] %></h1>
-    <p class="subheader"><%= @item[:subtitle] %></p>
-  </header>
-  <%= yield %>
-</main>
+    <main class="main">
+      <header class="page-title">
+        <h1><%= @item[:title] %></h1>
+        <% if @item[:subtitle] %>
+          <p class="subheader"><%= @item[:subtitle] %></p>
+        <% end %>
+      </header>
+
+      <%= yield %>
+
+      <% if has_comments? %>
+        <div id="discourse-comments"></div>
+
+        <script type="text/javascript">
+        DiscourseEmbed = { discourseUrl: 'https://discuss.pushtype.org/', discourseEmbedUrl: 'http://www.pushtype.org<%= @item.identifier %>' };
+
+        (function() {
+          var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+          d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+        })();
+        </script>
+      <% end %>
+    </main>
+  </div>
+</div>

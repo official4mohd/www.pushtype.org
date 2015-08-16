@@ -9,6 +9,7 @@
 
 body {
   margin: 0;
+  background-color: $base-background-color;
 }
 
 .wrap {
@@ -48,6 +49,7 @@ body {
     display: inline;
     float: left;
     &.utility {
+      display: none;
       float: right;
     }
   }
@@ -65,11 +67,13 @@ body {
   @include media($medium-screen-up) {
     @include span-columns(9);
     padding-left: 0;
+    ul.utility {
+      display: inline;
+    }
   }
 }
 
 .body {
-  background-color: $base-background-color;
   padding: 0 $gutter/2;
 }
 
@@ -81,11 +85,6 @@ body {
     @include shift(3);
     padding-left: 0;
   }
-}
-
-.main-wide {
-  padding: em(62) 0 em(48);
-  overflow: auto;
 }
 
 .footer {
@@ -118,19 +117,37 @@ body {
   }
 }
 
-.jumbo-panel {
+.hp-main {
+  padding: em(62) 0 em(48);
+  overflow: auto;
+}
+
+.hp-banner {
+  padding: $base-spacing $gutter/2;
   margin-bottom: $base-spacing;
   text-align: center;
+  background: url('/assets/hp-banner-sm.jpg') 50% 50% no-repeat;
+  background-size: cover;
+
+  h2 {
+    padding: $small-spacing $gutter/2;
+    background-color: rgba(#fff, 0.75);
+  }
 
   .inner {
     max-width: $medium-screen;
     margin: 0 auto;
   }
   .cta {
+    padding-bottom: em(16);
     .button {
       margin: 0 em(4, 24) em(8, 24);
       font-size: em(24);
     }
+  }
+
+  @include media($medium-screen-up) {
+    background-image: url('/assets/hp-banner-lg.jpg')
   }
 }
 
@@ -138,4 +155,10 @@ body {
   @include media($medium-screen-up) {
     @include span-columns(6);
   }
+}
+
+#discourse-comments {
+  margin-top: $base-spacing*2;
+  padding-top: $base-spacing;
+  border-top: 1px dotted $base-border-color;
 }

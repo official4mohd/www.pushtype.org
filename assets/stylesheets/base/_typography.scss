@@ -26,15 +26,15 @@ h1 {
   .page-title & {
     margin: 0 0 $small-spacing/6;
   }
-  .jumbo-panel & {
+  .hp-banner & {
     font-size: em(72);
     font-weight: 900;
-    margin-top: $small-spacing;
+    margin-top: 0;
   }
 }
 h2 {
   font-size: em(27);
-  .jumbo-panel & {
+  .hp-banner & {
     margin-bottom: $base-spacing;
   }
 }
@@ -59,7 +59,9 @@ p {
 
   .copy & {
     font-size: em(13);
+    font-weight: 400;
     text-align: center;
+    color: $medium-gray;
 
     &:last-child {
       margin-bottom: 0;

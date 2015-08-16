@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <title><%= @item[:title] %> - PushType</title>
-  <meta name="description" content="<%= @item[:desc] %>">
+  <%= meta_tag :description %>
 
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="HandheldFriendly" content="True">
@@ -50,11 +50,7 @@
     </div>
   </header>
 
-  <div class="body">
-    <div class="wrap">
-      <%= yield %>
-    </div>
-  </div>
+  <%= yield %>
 
   <footer class="footer">
     <div class="wrap">

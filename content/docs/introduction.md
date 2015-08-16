@@ -1,9 +1,10 @@
 ---
 title:    Introduction
 subtitle: Find out what PushType is and how it can help you.
+comments: true
 ---
 
-PushType is a **modern content management system** for **Ruby on Rails**.  It takes advantage of the latest tricks and treats that Rails and PostgreSQL offer, resulting in a fantastically flexible toolset for developers working on any kind of website.
+PushType is a **new and modern content management system** for **Ruby on Rails**.  It takes advantage of powerful new features available in the latest versions of Rails and PostgreSQL, resulting in a fantastically flexible toolset for developers working on any kind of website.
 
 It is distributed as a [Rails Engine](http://guides.rubyonrails.org/engines.html) so can integrate with your existing application or be used in a new app as a standalone CMS.
 
