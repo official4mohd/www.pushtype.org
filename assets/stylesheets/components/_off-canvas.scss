@@ -21,6 +21,14 @@
     background-color: transparent;
     border-right: none;
   }
+  .lt-ie9 & {
+    left: auto;
+    width: flex-grid(3, 12);
+    max-width: 215px;
+    padding: em(50) 0 em(12);
+    background-color: transparent;
+    border-right: none;
+  }
 }
 
 .nav-toggle {
@@ -33,6 +41,9 @@
     font-size: 32px;
   }
   @include media($medium-screen-up) {
+    display: none;
+  }
+  .lt-ie9 & {
     display: none;
   }
 }

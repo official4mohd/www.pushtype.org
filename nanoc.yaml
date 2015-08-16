@@ -67,6 +67,7 @@ data_sources:
     compile:
       - application.css
       - application.js
+      - modernizr.js
     path: assets
     assets_additionnal_paths:
       - bower_components

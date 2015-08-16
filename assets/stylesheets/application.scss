@@ -7,6 +7,10 @@
 @import "components/foundation-icons";
 @import "components/off-canvas";
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
@@ -16,8 +20,15 @@ body {
   background-color: $base-background-color;
 }
 
+main {
+  display: block;
+  width: 100%;
+}
+
 .wrap {
   @include outer-container;
+  width: 100%;
+  overflow: auto;
 }
 
 .header {
@@ -27,6 +38,9 @@ body {
   padding: 0 $gutter/2;
   border-bottom: 1px solid $base-border-color;
   background-color: rgba($lightest-gray, .95);
+  .no-rgba & {
+    background-color: $lightest-gray;
+  }
 }
 
 .logo {
@@ -44,11 +58,18 @@ body {
     .logo-sm { display: none; }
     .logo-lg { display: block; }
   }
+  .lt-ie9 & {
+    @include position(static);
+    @include span-columns(3);
+    .logo-sm { display: none; }
+    .logo-lg { display: block; }
+  }
 }
 
 .main-nav {
   padding-top: em(18);
   padding-left: em(48);
+  margin-right: 0;
   ul {
     display: inline;
     float: left;
@@ -75,11 +96,21 @@ body {
       display: inline;
     }
   }
+  .lt-ie9 & {
+    @include span-columns(9);
+    @include omega;
+    padding-left: 0;
+    ul.utility {
+      display: inline;
+    }
+  }
 }
 
 .body {
   padding: 0 $gutter/2;
-  min-height: 100%;
+  .docs & {
+    min-height: 100%;
+  }
 }
 
 
@@ -89,6 +120,12 @@ body {
   @include media($medium-screen-up) {
     @include span-columns(9);
     @include shift(3);
+    padding-left: 0;
+  }
+  .lt-ie9 & {
+    @include span-columns(9);
+    @include shift(3);
+    @include omega;
     padding-left: 0;
   }
 }
@@ -138,6 +175,9 @@ body {
   h2 {
     padding: $small-spacing $gutter/2;
     background-color: rgba(#fff, 0.75);
+    .no-rgba & {
+      background-color: #fff;
+    }
   }
 
   .inner {
@@ -155,10 +195,16 @@ body {
   @include media($medium-screen-up) {
     background-image: url('/assets/hp-banner-lg.jpg')
   }
+  .lt-ie9 & {
+    background-image: url('/assets/hp-banner-lg.jpg')
+  }
 }
 
 .hp-col {
   @include media($medium-screen-up) {
+    @include span-columns(6);
+  }
+  .lt-ie9 & {
     @include span-columns(6);
   }
 }
@@ -167,4 +213,8 @@ body {
   margin-top: $base-spacing*2;
   padding-top: $base-spacing;
   border-top: 1px dotted $base-border-color;
+}
+
+.ie-end {
+  margin-right: 0 !important;
 }
