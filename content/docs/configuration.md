@@ -1,5 +1,6 @@
 ---
-title: Configuration
+title:    Configuration
+comments: true
 ---
 
 When you invoke `rails g push_type:install` during [Installation](/docs/installation), an initializer file is generated and saved to `config/initializers/push_type.rb`. This file can be used to configure various aspects of your PushType installation.

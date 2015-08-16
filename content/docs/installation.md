@@ -1,6 +1,7 @@
 ---
 title:    Installation
 subtitle: Get started and install the PushType RubyGem.
+comments: true
 ---
 
 This tutorial will guide you through the simple process of installing PushType in to your Rails application.

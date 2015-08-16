@@ -1,5 +1,6 @@
 ---
-title: Key concepts
+title:    Key concepts
+comments: true
 ---
 
 A core philosophy behind PushType is the belief that the most efficient and effective way for a developer to design and build a site is through writing code.
