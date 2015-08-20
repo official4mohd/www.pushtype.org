@@ -38,6 +38,9 @@ h2 {
     line-height: 1.3;
     margin-bottom: $base-spacing;
   }
+  .docs &:target {
+    padding-top: em(86, 27);
+  }
 }
 h3 {
   font-size: em(24);

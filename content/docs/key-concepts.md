@@ -13,9 +13,9 @@ PushType encourages you to get your hands dirty with code. It encourages you to 
 
 ## Content tree
 
-Content in PushType is arranged in a tree-like hierarchy of **nodes**. There can be many different types of node, and these can be nested into deep and complex structures of content.
+Content in PushType is arranged in a tree-like hierarchy of **nodes**. There can be many different types of node, and each node can have siblings and children resulting in deep and complex structures of content.
 
-::TODO - illustration::
+<%# TODO - illustration %>
 
 ## Nodes
 
