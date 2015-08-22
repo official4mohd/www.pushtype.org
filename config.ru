@@ -7,6 +7,8 @@ use Rack::Rewrite do
   if ENV['RACK_ENV'] == 'production'
     r301 %r{.*}, 'http://www.pushtype.org$&', :if => ->(rack_env) { rack_env['SERVER_NAME'] != 'www.pushtype.org' }
   end
+
+  r301 %r{^/docs/?$}, '/docs/introduction'
 end
 
 # The static files

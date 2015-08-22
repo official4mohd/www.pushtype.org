@@ -3,27 +3,28 @@ title:    Nodes
 comments: true
 ---
 
-Nodes are the building blocks of a PushType website. On it's own, a node is a  just a piece of content with a title and permalink. But each node can have siblings or children, so collectively nodes can be arranged to define a tree-like hierarchy of content.
+Nodes are the building blocks of a PushType website. Each node can have siblings and children, so collectively nodes can be arranged to define a tree-like hierarchy of content.
 
-It's tempting to think of nodes as pages, which in a way they are, but they can be so much more. A node can be an article, or an event, or a testimonial, or a promotion, or whatever your unique set of requirements demand.
+It's tempting to think of nodes as pages, but they can be so much more. A node can be an article, or an event, or a testimonial, or a promotion... with the power of custom fields a node can be whatever your unique set of requirements demand.
 
 ## Creating a node
 
-PushType ships with a Rails generator for creating new nodes. It is invoked by passing a name for the node along with a list of field names and field types.
+PushType provides a Rails generator for creating new nodes. It is invoked by passing a name for the node along with a list of field names and field types.
 
-rails g push_type:node page description:string body:wysiwyg
+    #!shell
+    rails g push_type:node page description:string body:wysiwyg
 
-The generator will create a model at `app/models/page.rb`, which looks like:
+The command above will create a model at `app/models/page.rb`, which looks like:
 
     #!ruby
     class Page < PushType::Node
 
-      # By default a node can have children of any other node type.
+      # By default a node's children can be any other node type.
       # Optionally pass a list of acceptable node types or prevent
       # any descendants by passing false.
       has_child_nodes :all
 
-      # Set custom fields
+      # Model the content by adding custom fields to the node.
       field :description, :string
       field :body, :wysiwyg
 
@@ -33,7 +34,7 @@ The generator also created a view at `app/views/nodes/page.rb` which is rendered
 
 ## Child nodes
 
-By default a node can have children of any other node type. In most cases this is probably undesirable. The `has_child_nodes` class method can be used to whitelist acceptable children, or prevent descendants from the node entirely.
+By default a node's children can be any other node type. In most cases this is probably undesired. The `has_child_nodes` class method can be used to whitelist acceptable children (or prevent descendants from the node entirely by passing `false`).
 
 For example, a typical blog structure might look like this:
 
@@ -42,9 +43,9 @@ For example, a typical blog structure might look like this:
       has_child_nodes :article, order: :blog
     end
 
-On any node instance, `Node#children` can be called to return all the children. By default children are ordered by the `sort_order` database column (essentially meaning that nodes can be ordered arbitrarily through the admin UI). This behaviour can be overridden by passing an SQL fragment   to the `:order` option.
+On any node instance, `Node#children` can be called to return all the children. By default children can be ordered arbitrarily through the admin UI. This behaviour can be overridden by passing an SQL fragment as the `:order` option.
 
-Note that in the example above, the `:order` option contains the symbol `:blog`. This is a bit of PushType shorthand magic, essentially translating as `['published_at DESC', 'created_at DESC']`
+Note that in the example above, the `:order` option contains the symbol `:blog`. This is a bit of shorthand magic, essentially translating as `['published_at DESC', 'created_at DESC']`
 
 ## Custom fields
 
