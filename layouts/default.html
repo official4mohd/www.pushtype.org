@@ -11,7 +11,7 @@
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
 
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,900|Anonymous+Pro:400">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,900|Anonymous+Pro:400">
   <link rel="stylesheet" href="/assets/application.css">
 
   <script src="/assets/modernizr.js"></script>
@@ -19,6 +19,13 @@
   <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
   <meta http-equiv="cleartype" content="on">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <% if @item[:open_graph] %>
+    <meta name="og:url" content="http://www.pushtype.org<%= @item.identifier %>">
+    <% @item[:open_graph].keys.each do |key| %>
+      <%= open_graph key %>
+    <% end %>
+  <% end %>
 
   <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
   <script>
@@ -41,6 +48,7 @@
       <nav class="main-nav">
         <ul>
           <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="manifesto"><a href="/manifesto">Manifesto</a></li>
           <li class="comm"><a href="https://discuss.pushtype.org">Community</a></li>
         </ul>
         <ul class="utility">

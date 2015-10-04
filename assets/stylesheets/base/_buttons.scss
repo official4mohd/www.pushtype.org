@@ -36,4 +36,17 @@ button {
       background-color: darken($success-color, 15%);
     }
   }
+
+  &.twitter {
+    background-color: #55acee;
+    &:hover, &:focus {
+      background-color: darken(#55acee, 10%);
+    }
+  }
+  &.facebook {
+    background-color: #3b5998;
+    &:hover, &:focus {
+      background-color: darken(#3b5998, 10%);
+    }
+  }
 }

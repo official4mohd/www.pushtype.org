@@ -71,6 +71,9 @@ p {
       margin-bottom: 0;
     }
   }
+  .mn-cta > & {
+    font-style: italic;
+  }
 }
 
 %active-nav {

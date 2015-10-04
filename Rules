@@ -24,7 +24,7 @@ compile '/docs/*/' do
   layout 'default'
 end
 
-compile '/' do
+compile %r{/(manifesto/)?} do
   filter :erb
   layout 'homepage'
   layout 'default'

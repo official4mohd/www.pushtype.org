@@ -31,6 +31,10 @@ main {
   overflow: auto;
 }
 
+.row {
+  @include row;
+}
+
 .header {
   @include position(fixed, 0 0 auto 0);
   @include size(100% 62px);
@@ -153,6 +157,16 @@ main {
   background-color: #fff;
   border-left: 4px solid $base-border-color;
 
+  &.info {
+    border-color: $info-color;
+    background-color: mix($info-color, #fff, 10%);
+    h3 { color: $info-color; }
+  }
+  &.success {
+    border-color: $success-color;
+    background-color: mix($success-color, #fff, 10%);
+    h3 { color: $success-color; }
+  }
   &.warning {
     border-color: $warning-color;
     background-color: mix($warning-color, #fff, 10%);
@@ -169,7 +183,8 @@ main {
   padding: $base-spacing $gutter/2;
   margin-bottom: $base-spacing;
   text-align: center;
-  background: url('/assets/hp-banner-sm.jpg') 50% 50% no-repeat;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
   background-size: cover;
 
   h2 {
@@ -192,11 +207,23 @@ main {
     }
   }
 
+  .home &       { background-image: url('/assets/hp-banner-sm.jpg'); }
+  .manifesto &  { background-image: url('/assets/mn-banner-sm.jpg'); }
+
+  .manifesto & {
+    color: #fff;
+    h2 {
+      background-color: rgba(#fff, 0.25);
+    }
+  }
+
   @include media($medium-screen-up) {
-    background-image: url('/assets/hp-banner-lg.jpg')
+    .home &       { background-image: url('/assets/hp-banner-lg.jpg') }
+    .manifesto &  { background-image: url('/assets/mn-banner-lg.jpg') }
   }
   .lt-ie9 & {
-    background-image: url('/assets/hp-banner-lg.jpg')
+    .home &       { background-image: url('/assets/hp-banner-lg.jpg') }
+    .manifesto &  { background-image: url('/assets/mn-banner-lg.jpg') }
   }
 }
 
@@ -207,6 +234,11 @@ main {
   .lt-ie9 & {
     @include span-columns(6);
   }
+}
+
+.mn-cta {
+  width: flex-grid(7, 12);
+  margin: $base-spacing*2 auto 0;
 }
 
 #discourse-comments {
