@@ -1,0 +1,34 @@
+.flag {
+  display: table;
+  width: 100%;
+
+  .image, .body {
+    display: table-cell;
+    vertical-align: middle;
+
+    .top & {
+      vertical-align: top;
+    }
+    .bottom & {
+      vertical-align: bottom;
+    }
+  }
+
+  .image {
+    padding-right: $gutter;
+
+    > img {
+      display: block;
+      max-width: none;
+    }
+    .rev & {
+      padding-right: 0;
+      padding-left: $gutter;
+    }
+  }
+
+  .body {
+    width: 100%;
+    padding: 0;
+  }
+}

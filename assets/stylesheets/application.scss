@@ -4,6 +4,7 @@
 @import "base/base";
 
 @import "components/highlight";
+@import "components/flag";
 @import "components/foundation-icons";
 @import "components/off-canvas";
 
@@ -236,9 +237,34 @@ main {
   }
 }
 
+.mn-col {
+  @include media($medium-screen-up) {
+    width: flex-grid(8, 12);
+    margin: $base-spacing*2 auto 0;
+  }
+  .lt-ie9 & {
+    width: flex-grid(8, 12);
+    margin: $base-spacing*2 auto 0;
+  }
+}
+
+.mn-body {
+  margin-bottom: $base-spacing*2;
+  svg {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .mn-cta {
-  width: flex-grid(7, 12);
-  margin: $base-spacing*2 auto 0;
+  @include media($medium-screen-up) {
+    width: flex-grid(7, 12);
+    margin: 0 auto;
+  }
+  .lt-ie9 & {
+    width: flex-grid(7, 12);
+    margin: 0 auto;
+  }
 }
 
 #discourse-comments {

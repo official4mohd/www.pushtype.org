@@ -38,6 +38,11 @@ h2 {
     line-height: 1.3;
     margin-bottom: $base-spacing;
   }
+  .mn-body & {
+    margin-top: $small-spacing;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
   .docs &:target {
     padding-top: em(86, 27);
   }
@@ -71,8 +76,8 @@ p {
       margin-bottom: 0;
     }
   }
-  .mn-cta > & {
-    font-style: italic;
+  .mn-body & {
+    font-size: em(21);
   }
 }
 
