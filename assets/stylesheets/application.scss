@@ -86,9 +86,12 @@ main {
   li {
     display: inline;
     float: left;
-    margin-right: 1em;
+    margin-right: 1.5em;
     &:last-child {
       margin-right: 0;
+    }
+    &.manifesto {
+      display: none;
     }
   }
   .utility li {
@@ -99,6 +102,9 @@ main {
     padding-left: 0;
     li {
       margin-right: 2em;
+    }
+    li.manifesto {
+      display: inline;
     }
     ul.utility {
       display: inline;
