@@ -57,7 +57,7 @@ For example, an article in our blog might look like this:
     class Article < PushType::Node
       field :excerpt, :text
       field :body, :wysiwyg, validates: { presence: true }
-      field :categories, :taxonomy, multiple: true
+      field :testimonial_ids, :relation, multiple: true
       field :tags, :tag_list
     end
 

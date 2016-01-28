@@ -41,21 +41,6 @@ It's also possible to add a node type to the unexposed nodes list by calling `No
       unexpose!
     end
 
-## Unexposed taxonomies
-
-By default all taxonomy terms are exposed to the `TaxonomiesFrontEndController` when visiting the permalink. Whole taxonomies can be blacklisted from the front end by passing an array of taxonomy type symbols to the `unexposed_taxonomies` option.
-
-    #!ruby
-    # Hide taxonomies from the NodesFrontEndController
-    config.unexposed_taxonomies = [:manufacturer, :author]
-
-Hey guess what? We can also add taxonomies to the unexposed taxonomies list by calling `Taxonomy.unexpose!` on the class itself:
-
-    #!ruby
-    class Manufacturer < PushType::Taxonomy
-      unexpose!
-    end
-
 ## Media styles
 
 Media styles allow you to configure a collection of reusable [geometry strings](http://markevans.github.io/dragonfly/imagemagick/#processors) to be used by the `Asset#media` method for resizing images on the fly. The built in WYSIWYG editor makes use of these to allow users to easily scale images to predefined sizes.
