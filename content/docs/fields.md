@@ -28,7 +28,7 @@ Take the following example:
     me.date_of_birth  #=> #<Date: 1954-02-25>
     me.valid?         #=> false
 
-So far, so predictable. But here's where it get cool:
+So far, so predictable. But here's where it gets cool:
 
 1. Data is stored internally in a JSON object so it's possible to create deep and complex data structures with no database migrations.
 2. Each field type has it's own template and other UI assets, so PushType automatically creates forms for editing your nodes.
