@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--[if (lt IE 9)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Fields - PushType Docs</title>
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,900|Anonymous+Pro:400">
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <script src="/assets/modernizr.js"></script>
+
+  <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <meta name="generator" content="nanoc 3.8.0">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1291546-11', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+<body class="docs fields">
+  <header class="header">
+    <div class="wrap">
+      <div class="logo">
+        <a href="/"><img src="/assets/pushtype-icon.png" srcset="/assets/pushtype-icon@2x.png 2x" alt="PushType" class="logo-sm"></a>
+        <a href="/"><img src="/assets/pushtype-logo.png" srcset="/assets/pushtype-logo@2x.png 2x" alt="PushType" class="logo-lg"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="manifesto"><a href="/manifesto">Manifesto</a></li>
+          <li class="comm"><a href="https://discuss.pushtype.org">Community</a></li>
+        </ul>
+        <ul class="utility">
+          <li><a href="https://twitter.com/pushtype" title="Source code"><span class="ficon fi-social-twitter"></span></a></li>
+          <li class="ie-end"><a href="https://github.com/pushtype/push_type" title="Source code"><span class="ficon fi-social-github"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="body">
+  <div class="wrap">
+    <div class="nav-toggle" data-nav-toggle>
+      <a href="#menu" title="Menu"><span class="ficon fi-list"></span></a>
+    </div>
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+          <li class="installation"><a href="/docs/installation">Installation</a></li>
+          <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+        </ul>
+        <h4>Documentation</h4>
+        <ul>
+          <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+          <li class="nodes"><a href="/docs/nodes">Nodes</a></li>
+          <li class="fields"><a href="/docs/fields">Fields</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main">
+      <header class="page-title">
+        <h1>Fields</h1>
+        
+      </header>
+
+      
+<p>Custom field types are where the magic happens in PushType. By applying different fields to node objects, content can be modelled in boundless ways. A few lines of code, no database migrations, no forms to create - it just works!</p>
+
+<h2 id="adding-fields-to-a-node">Adding fields to a node</h2>
+
+<p>Fields are added to a node class by calling the <code>field</code> class method. The field method accepts three arguments:</p>
+
+<ul>
+  <li>
+<code>name</code> - the name of the attribute</li>
+  <li>
+<code>type</code> - the field type, defaults to <code>:string</code>
+</li>
+  <li>
+<code>options</code> - a hash of options</li>
+</ul>
+
+<p>Take the following example:</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Model a Person object with a name, date of birth</span>
+<span class="k">class</span> <span class="nc">Person</span> <span class="o">&lt;</span> <span class="no">PushType</span><span class="o">::</span><span class="no">Node</span>
+  <span class="n">field</span> <span class="ss">:biography</span><span class="p">,</span> <span class="ss">:wysiwyg</span><span class="p">,</span> <span class="ss">validates: </span><span class="p">{</span> <span class="ss">presence: </span><span class="kp">true</span> <span class="p">}</span>
+  <span class="n">field</span> <span class="ss">:date_of_birth</span><span class="p">,</span> <span class="ss">:date</span>
+<span class="k">end</span>
+
+<span class="c1"># Lets create a person</span>
+<span class="n">me</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span> <span class="ss">title: </span><span class="s1">'John Doe'</span><span class="p">,</span> <span class="ss">date_of_birth: </span><span class="s1">'1954-02-25'</span>
+
+<span class="n">me</span><span class="p">.</span><span class="nf">title</span>          <span class="c1">#=&gt; "John Doe"</span>
+<span class="n">me</span><span class="p">.</span><span class="nf">date_of_birth</span>  <span class="c1">#=&gt; #&lt;Date: 1954-02-25&gt;</span>
+<span class="n">me</span><span class="p">.</span><span class="nf">valid?</span>         <span class="c1">#=&gt; false</span></code></pre>
+
+<p>So far, so predictable. But here’s where it gets cool:</p>
+
+<ol>
+  <li>Data is stored internally in a JSON object so it’s possible to create deep and complex data structures with no database migrations.</li>
+  <li>Each field type has it’s own template and other UI assets, so PushType automatically creates forms for editing your nodes.</li>
+  <li>If PushType’s built in set of custom fields don’t quite offer the flexibility you need, then it’s simple to customise the behaviour of existing fields or even build your own!</li>
+</ol>
+
+<div class="panel callout warning">
+  <h3>Incomplete documentation</h3>
+  <p>We're working on this section of the documentation. It'll be with you soon.</p>
+</div>
+
+
+      
+    </main>
+  </div>
+</div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="copy">
+        <p>The PushType CMS is free software, lovingly <a href="http://www.pushcode.com">developed by Push Code</a>, and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+        <p>The content of the PushType website is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike License</a>.</p>
+        <p>PushType &copy; 2015 Push Code Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
+
+  <script src="/assets/application.js"></script>
+</body>
+</html>

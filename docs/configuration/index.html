@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<!--[if (lt IE 9)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Configuration - PushType Docs</title>
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,900|Anonymous+Pro:400">
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <script src="/assets/modernizr.js"></script>
+
+  <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <meta name="generator" content="nanoc 3.8.0">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1291546-11', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+<body class="docs configuration">
+  <header class="header">
+    <div class="wrap">
+      <div class="logo">
+        <a href="/"><img src="/assets/pushtype-icon.png" srcset="/assets/pushtype-icon@2x.png 2x" alt="PushType" class="logo-sm"></a>
+        <a href="/"><img src="/assets/pushtype-logo.png" srcset="/assets/pushtype-logo@2x.png 2x" alt="PushType" class="logo-lg"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="manifesto"><a href="/manifesto">Manifesto</a></li>
+          <li class="comm"><a href="https://discuss.pushtype.org">Community</a></li>
+        </ul>
+        <ul class="utility">
+          <li><a href="https://twitter.com/pushtype" title="Source code"><span class="ficon fi-social-twitter"></span></a></li>
+          <li class="ie-end"><a href="https://github.com/pushtype/push_type" title="Source code"><span class="ficon fi-social-github"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="body">
+  <div class="wrap">
+    <div class="nav-toggle" data-nav-toggle>
+      <a href="#menu" title="Menu"><span class="ficon fi-list"></span></a>
+    </div>
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+          <li class="installation"><a href="/docs/installation">Installation</a></li>
+          <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+        </ul>
+        <h4>Documentation</h4>
+        <ul>
+          <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+          <li class="nodes"><a href="/docs/nodes">Nodes</a></li>
+          <li class="fields"><a href="/docs/fields">Fields</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main">
+      <header class="page-title">
+        <h1>Configuration</h1>
+        
+      </header>
+
+      
+<p>During <a href="/docs/installation">installation</a>, when you invoke <code>rails g push_type:install</code> an initializer file is generated and saved to <code>config/initializers/push_type.rb</code>. This file can be used to configure various aspects of your PushType installation.</p>
+
+<h2 id="root-nodes">Root nodes</h2>
+
+<p>By default all node types can be placed at the root of the <a href="/docs/key-concepts#content-tree">content tree</a>. Instead this can be whitelisted by passing an array of node type symbols to the <code>root_nodes</code> option.</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Restrict root nodes to HomePage and Page node types</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">root_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:home_page</span><span class="p">,</span> <span class="ss">:page</span><span class="p">]</span></code></pre>
+
+<h2 id="homepage">Homepage</h2>
+
+<p>By default, when visiting the root URL of your PushType site (the homepage), the <code>NodesFrontEndContoller</code> will look for a node with the slug <code>home</code>. This behaviour can be changed by setting a different value for the <code>home_slug</code> option.</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Set the homepage slug</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">home_slug</span> <span class="o">=</span> <span class="s1">'landing_page'</span></code></pre>
+
+<p>The config setting can be overridden in <code>config/routes.rb</code> by passing the <code>:home</code> option:</p>
+
+<pre><code class="language-ruby highlight"><span class="n">mount_push_type</span> <span class="ss">home: </span><span class="s1">'blog'</span></code></pre>
+
+<h2 id="unexposed-nodes">Unexposed nodes</h2>
+
+<p>By default all node types are exposed to the <code>NodesFrontEndController</code> when visiting the permalink. Sections of content can be blacklisted (and effectively hidden) from the front end by passing an array of node type symbols to the <code>unexposed_nodes</code> option.</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Hide node types from the NodesFrontEndController</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">unexposed_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:testimonial</span><span class="p">,</span> <span class="ss">:author_profile</span><span class="p">]</span></code></pre>
+
+<p>It’s also possible to add a node type to the unexposed nodes list by calling <code>Node.unexpose!</code> on the class itself:</p>
+
+<pre><code class="language-ruby highlight"><span class="k">class</span> <span class="nc">Testimonial</span> <span class="o">&lt;</span> <span class="no">PushType</span><span class="o">::</span><span class="no">Node</span>
+  <span class="n">unexpose!</span>
+<span class="k">end</span></code></pre>
+
+<h2 id="media-styles">Media styles</h2>
+
+<p>Media styles allow you to configure a collection of reusable <a href="http://markevans.github.io/dragonfly/imagemagick/#processors">geometry strings</a> to be used by the <code>Asset#media</code> method for resizing images on the fly. The built in WYSIWYG editor makes use of these to allow users to easily scale images to predefined sizes.</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Set predefined geometry strings for resizing image assets</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">media_styles</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">large:    </span><span class="s1">'1024x1024&gt;'</span><span class="p">,</span>
+  <span class="ss">medium:   </span><span class="s1">'512x512&gt;'</span><span class="p">,</span>
+  <span class="ss">small:    </span><span class="s1">'256x256&gt;'</span>
+<span class="p">}</span>
+
+<span class="c1"># And use them with Asset#media</span>
+<span class="n">image</span><span class="p">.</span><span class="nf">media</span><span class="p">(</span><span class="ss">:medium</span><span class="p">)</span></code></pre>
+
+<h2 id="dragonfly-datastore">Dragonfly datastore</h2>
+
+<p>PushType uses <a href="http://markevans.github.io/dragonfly/">Dragonfly</a> for managing uploaded images/assets. By default uploads are stored on the filesystem but it’s simple to switch to any datastore.</p>
+
+<pre><code class="language-ruby highlight"><span class="c1"># Dragonfly datastore configuration</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">dragonfly_datastore</span> <span class="o">=</span> <span class="ss">:file</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">dragonfly_datastore_options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">root_path:    </span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'public/system/dragonfly'</span><span class="p">,</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">env</span><span class="p">),</span>
+  <span class="ss">server_root:  </span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'public'</span><span class="p">)</span>
+<span class="p">}</span>
+  
+<span class="c1"># For S3 storage, remember to add to Gemfile:</span>
+<span class="c1"># gem 'dragonfly-s3_data_store'</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">dragonfly_datastore</span> <span class="o">=</span> <span class="ss">:s3</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">dragonfly_datastore_options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">bucket_name:        </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'S3_BUCKET'</span><span class="p">],</span>
+  <span class="ss">access_key_id:      </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'S3_ACCESS_KEY_ID'</span><span class="p">],</span>
+  <span class="ss">secret_access_key:  </span><span class="no">ENV</span><span class="p">[</span><span class="s1">'SECRET_ACCESS_KEY_ID'</span><span class="p">]</span>
+<span class="p">}</span></code></pre>
+
+
+
+      
+    </main>
+  </div>
+</div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="copy">
+        <p>The PushType CMS is free software, lovingly <a href="http://www.pushcode.com">developed by Push Code</a>, and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+        <p>The content of the PushType website is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike License</a>.</p>
+        <p>PushType &copy; 2015 Push Code Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
+
+  <script src="/assets/application.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--[if (lt IE 9)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Installation - PushType Docs</title>
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,900|Anonymous+Pro:400">
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <script src="/assets/modernizr.js"></script>
+
+  <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <meta name="generator" content="nanoc 3.8.0">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1291546-11', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+<body class="docs installation">
+  <header class="header">
+    <div class="wrap">
+      <div class="logo">
+        <a href="/"><img src="/assets/pushtype-icon.png" srcset="/assets/pushtype-icon@2x.png 2x" alt="PushType" class="logo-sm"></a>
+        <a href="/"><img src="/assets/pushtype-logo.png" srcset="/assets/pushtype-logo@2x.png 2x" alt="PushType" class="logo-lg"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="manifesto"><a href="/manifesto">Manifesto</a></li>
+          <li class="comm"><a href="https://discuss.pushtype.org">Community</a></li>
+        </ul>
+        <ul class="utility">
+          <li><a href="https://twitter.com/pushtype" title="Source code"><span class="ficon fi-social-twitter"></span></a></li>
+          <li class="ie-end"><a href="https://github.com/pushtype/push_type" title="Source code"><span class="ficon fi-social-github"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="body">
+  <div class="wrap">
+    <div class="nav-toggle" data-nav-toggle>
+      <a href="#menu" title="Menu"><span class="ficon fi-list"></span></a>
+    </div>
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+          <li class="installation"><a href="/docs/installation">Installation</a></li>
+          <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+        </ul>
+        <h4>Documentation</h4>
+        <ul>
+          <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+          <li class="nodes"><a href="/docs/nodes">Nodes</a></li>
+          <li class="fields"><a href="/docs/fields">Fields</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main">
+      <header class="page-title">
+        <h1>Installation</h1>
+        
+          <p class="subheader">Get started and install the PushType RubyGem.</p>
+        
+      </header>
+
+      
+<p>This tutorial will guide you through the simple process of installing PushType in to your Rails application.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>PushType takes advantage of modern features of PostgreSQL, which in turn requires a recent version of Rails.</p>
+
+<ul>
+  <li>Rails 4.2+</li>
+  <li>PostgreSQL 9.4</li>
+  <li>ImageMagick</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Assuming you have a Rails app ready to go, add the following line to the <code>Gemfile</code>:</p>
+
+<pre><code class="language-ruby highlight"><span class="n">gem</span> <span class="s1">'push_type'</span></code></pre>
+
+<p>Then execute from the terminal:</p>
+
+<pre><code class="language-shell highlight">bundle install</code></pre>
+
+<p>Once bundler has done its thing, you’ll be able to use PushType’s Rails generators. Execute from the terminal:</p>
+
+<pre><code class="language-shell highlight">rails g push_type:install</code></pre>
+
+<p>That will install a <a href="/docs/configuration">configuration file</a> in <code>config/initializers</code>, setup some rules is <code>config/routes.rb</code>, and migrate your database.</p>
+
+<p>Finally, from the terminal run this rake task to create a user with which you’ll be able to log in to PushType:</p>
+
+<pre><code class="language-shell highlight">rake push_type:create_user</code></pre>
+
+<h2 id="what-next">What next?</h2>
+
+<p>I’m guessing that didn’t even take five minutes, right?</p>
+
+<p>At this point, you can fire up your application and start poking around in the admin UI:</p>
+
+<pre><code>http://localhost:3000/push_type
+</code></pre>
+
+<p>However, you won’t be able to create any content yet. You need to start generating node types.</p>
+
+<ul>
+  <li><a href="/docs/key-concepts">Understand the key concepts behind PushType</a></li>
+  <li><a href="/docs/nodes">Generate your first node type</a></li>
+</ul>
+
+
+      
+    </main>
+  </div>
+</div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="copy">
+        <p>The PushType CMS is free software, lovingly <a href="http://www.pushcode.com">developed by Push Code</a>, and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+        <p>The content of the PushType website is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike License</a>.</p>
+        <p>PushType &copy; 2015 Push Code Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
+
+  <script src="/assets/application.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<!--[if (lt IE 9)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gte IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Key concepts - PushType Docs</title>
+  
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,900|Anonymous+Pro:400">
+  <link rel="stylesheet" href="/assets/application.css">
+
+  <script src="/assets/modernizr.js"></script>
+
+  <link rel="shortcut icon" href="/assets/pushtype-favicon.png">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+
+  <meta name="generator" content="nanoc 3.8.0">
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1291546-11', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+<body class="docs key-concepts">
+  <header class="header">
+    <div class="wrap">
+      <div class="logo">
+        <a href="/"><img src="/assets/pushtype-icon.png" srcset="/assets/pushtype-icon@2x.png 2x" alt="PushType" class="logo-sm"></a>
+        <a href="/"><img src="/assets/pushtype-logo.png" srcset="/assets/pushtype-logo@2x.png 2x" alt="PushType" class="logo-lg"></a>
+      </div>
+      <nav class="main-nav">
+        <ul>
+          <li class="docs"><a href="/docs/introduction">Documentation</a></li>
+          <li class="manifesto"><a href="/manifesto">Manifesto</a></li>
+          <li class="comm"><a href="https://discuss.pushtype.org">Community</a></li>
+        </ul>
+        <ul class="utility">
+          <li><a href="https://twitter.com/pushtype" title="Source code"><span class="ficon fi-social-twitter"></span></a></li>
+          <li class="ie-end"><a href="https://github.com/pushtype/push_type" title="Source code"><span class="ficon fi-social-github"></span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="body">
+  <div class="wrap">
+    <div class="nav-toggle" data-nav-toggle>
+      <a href="#menu" title="Menu"><span class="ficon fi-list"></span></a>
+    </div>
+    <div class="side-col">
+      <nav class="side-nav">
+        <h4>Getting started</h4>
+        <ul>
+          <li class="introduction"><a href="/docs/introduction">Introduction</a></li>
+          <li class="installation"><a href="/docs/installation">Installation</a></li>
+          <li class="key-concepts"><a href="/docs/key-concepts">Key Concepts</a></li>
+        </ul>
+        <h4>Documentation</h4>
+        <ul>
+          <li class="configuration"><a href="/docs/configuration">Configuration</a></li>
+          <li class="nodes"><a href="/docs/nodes">Nodes</a></li>
+          <li class="fields"><a href="/docs/fields">Fields</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main">
+      <header class="page-title">
+        <h1>Key concepts</h1>
+        
+      </header>
+
+      
+<p>A core philosophy behind PushType is the belief that the most efficient and effective way for a developer to design and build a site is through writing code.</p>
+
+<p>We use this principle to justify a more streamlined and simpler user interface. We give the website owner the right tools to manage their site on a day-to-day basis. We give the developer a turbo-charged set of power tools only accessible under the hood.</p>
+
+<p>A website’s content hierarchy and underlying structure is defined with code and classes, following simple and reusable patterns. The result is an extremely efficient and flexible system where content can be bent and moulded in ways limited only by your imagination.</p>
+
+<p>PushType encourages you to get your hands dirty with code. It encourages you to <strong>hack, tinker and learn</strong>.</p>
+
+<h2 id="content-tree">Content tree</h2>
+
+<p>Content in PushType is arranged in a tree-like hierarchy of <strong>nodes</strong>. There can be many different types of node, and each node can have siblings and children resulting in deep and complex structures of content.</p>
+
+<h2 id="nodes">Nodes</h2>
+
+<p>A node is simply a class that inherits from <code>PushType::Node</code>. Each node also has it’s own view. By default the <code>NodesFrontEndController</code> will render a node’s view when you visit the node’s permalink.</p>
+
+<p>It’s also possible to create <em>unexposed</em> nodes. This allows you to create content within the tree that is effectively hidden to the front end, but can be referenced and used elsewhere in the site.</p>
+
+<p>As a node is just a model in your Rails app, the behaviour of that node can be manipulated by writing plain old Ruby. Of course the most common thing you’ll wan’t to do is add custom fields to your content, and that is breathtakingly simple:</p>
+
+<pre><code class="language-ruby highlight"><span class="k">class</span> <span class="nc">Article</span> <span class="o">&lt;</span> <span class="no">PushType</span><span class="o">::</span><span class="no">Node</span>
+  <span class="n">field</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:wysiwyg</span><span class="p">,</span> <span class="ss">validates: </span><span class="p">{</span> <span class="ss">presence: </span><span class="kp">true</span> <span class="p">}</span>
+  <span class="n">field</span> <span class="ss">:tags</span><span class="p">,</span> <span class="ss">:tag_list</span>
+  <span class="n">field</span> <span class="ss">:author</span><span class="p">,</span> <span class="ss">:select</span><span class="p">,</span> <span class="ss">choices: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="no">Author</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="o">|</span> <span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="nf">name</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="nf">id</span><span class="p">]</span> <span class="p">}</span> <span class="p">}</span>
+<span class="k">end</span></code></pre>
+
+<h2 id="custom-fields">Custom fields</h2>
+
+<p>PushType comes jam-packed with a built-in set of useful field types, from the humble text field to our wysiwyg editor, from asset pickers to date pickers.</p>
+
+<p>It won’t be long before you’ll want to write your own custom fields. That’s made easy too. Fields are classes that inherit from <code>PushType::Field</code> and can also have their own view and assets. With not a lot of effort, you can create immensely powerful field types that behave exactly how you need them to behave.</p>
+
+<h2 id="what-next">What next?</h2>
+
+<p>These three concepts - the tree-like content hierarchy, the custom node types and custom field types - combine to create an infinitely flexibly system. Complex structures of content can be thrown together with just a few lines of code and a few more minutes work.</p>
+
+<ul>
+  <li><a href="/docs/nodes">Learn more about nodes</a></li>
+  <li><a href="/docs/fields">Learn more about custom fields</a></li>
+</ul>
+
+
+      
+    </main>
+  </div>
+</div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="copy">
+        <p>The PushType CMS is free software, lovingly <a href="http://www.pushcode.com">developed by Push Code</a>, and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+        <p>The content of the PushType website is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike License</a>.</p>
+        <p>PushType &copy; 2015 Push Code Limited.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="nav-overlay" data-nav-overlay aria-hidden="true"></div>
+
+  <script src="/assets/application.js"></script>
+</body>
+</html>
