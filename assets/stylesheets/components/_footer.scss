@@ -1,0 +1,10 @@
+.footer {
+  padding: em(48) $gutter/2;
+  background-color: #fff;
+  border-top: 1px dotted $base-border-color;
+
+  .copy {
+    max-width: flex-grid(9, 12);
+    margin: 0 auto;
+  }
+}

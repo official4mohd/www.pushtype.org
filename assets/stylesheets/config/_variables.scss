@@ -1,0 +1,88 @@
+@charset 'utf-8';
+
+/**
+ * Title:
+ *   Variables
+ * Sections:
+ *   - $. Colours
+ *   - $. Typography
+ *   - $. Layout
+ *   - $. Site variables
+ *   - $. Z-Axis
+ *
+ * ================================================== */
+
+
+/**
+ * $. Colours
+ * -------------------------------------------------- */
+
+$blue: #008CBA;
+$dark-gray: #222222;
+$medium-gray: #666666;
+$light-gray: #ddd;
+$lightest-gray: #FAFAFA;
+
+$brand-blue: #3BB5EF;
+
+$alert-color: #f04124;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$info-color: #a0d3e8;
+
+// Font Colors
+$base-background-color: #fff;
+$base-font-color: $dark-gray;
+$action-color: $blue;
+
+
+/**
+ * $. Typography
+ * -------------------------------------------------- */
+
+$base-font-family: 'Lato', sans-serif;
+$heading-font-family: $base-font-family;
+$mono-font-family: 'Anonymous Pro', monospace;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line heights
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+
+/**
+ * $. Layout
+ * -------------------------------------------------- */
+
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+
+/**
+ * $. Site variables
+ * -------------------------------------------------- */
+
+$main-nav-items: 'docs', 'manifesto', 'comm';
+$docs-nav-items: 'introduction', 'installation', 'key-concepts', 'configuration', 'nodes', 'fields';
+
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
+$base-border-radius: 3px;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+/**
+ * $. Z-Axis
+ * -------------------------------------------------- */
+
+$base-z-index: 0;
+$z0: -1;
+$z1: 1;
+$z2: 5;
+$z3: 10;
+$z4: 15;
+$z5: 20;

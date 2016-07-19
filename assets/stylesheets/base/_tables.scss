@@ -1,3 +1,20 @@
+@charset 'utf-8';
+
+/**
+ * Title:
+ *   Tables
+ * Description:
+ *   Table styles
+ * Sections:
+ *    $. Tables
+ *
+ * ================================================== */
+
+
+/**
+ * $. Tables
+ * -------------------------------------------------- */
+
 table {
   @include font-feature-settings("kern", "liga", "tnum");
   border-collapse: collapse;

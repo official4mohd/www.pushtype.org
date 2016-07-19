@@ -1,0 +1,34 @@
+.header {
+  @include position(fixed, 0 0 auto 0);
+  @include size(100% 62px);
+  z-index: 3;
+  padding: 0 $gutter/2;
+  border-bottom: 1px solid $base-border-color;
+  background-color: rgba($lightest-gray, .95);
+  .no-rgba & {
+    background-color: $lightest-gray;
+  }
+}
+
+.logo {
+  @include position(absolute);
+  padding-top: em(14);
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  .logo-lg { display: none; }
+
+  @include media($medium-screen-up) {
+    @include position(static);
+    @include span-columns(3);
+    .logo-sm { display: none; }
+    .logo-lg { display: block; }
+  }
+  .lt-ie9 & {
+    @include position(static);
+    @include span-columns(3);
+    .logo-sm { display: none; }
+    .logo-lg { display: block; }
+  }
+}

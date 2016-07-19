@@ -1,3 +1,21 @@
+@charset 'utf-8';
+
+/**
+ * Title:
+ *   Forms
+ * Description:
+ *   Styles for forms, fieldsets, labels and inputs.
+ * Sections:
+ *    $. Defaults
+ *    $. Inputs
+ *
+ * ================================================== */
+
+
+/**
+ * $. Defaults
+ * -------------------------------------------------- */
+
 fieldset {
   background-color: lighten($base-border-color, 10%);
   border: $base-border;
@@ -25,6 +43,11 @@ label {
     display: none;
   }
 }
+
+
+/**
+ * $. Inputs
+ * -------------------------------------------------- */
 
 #{$all-text-inputs},
 select[multiple=multiple],

@@ -1,0 +1,43 @@
+@charset 'utf-8';
+
+/**
+ * Title:
+ *   Media
+ * Description:
+ *   Flexible media and icon styles.
+ * Sections:
+ *    $. Flexible images
+ *    $. Icons
+ *
+ * ================================================== */
+
+
+/**
+ * $. Flexible images
+ * -------------------------------------------------- */
+
+img {
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+
+  &[width] {
+    width: auto !important;
+  }
+
+  &[height] {
+    height: auto !important;
+  }
+}
+
+img,
+audio,
+canvas,
+embed,
+object,
+picture,
+video {
+  margin: 0;
+  max-width: 100%;
+  height: auto;
+}

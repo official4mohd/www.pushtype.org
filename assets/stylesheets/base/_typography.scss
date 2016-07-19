@@ -1,19 +1,24 @@
-body {
-  @include font-feature-settings("kern", "liga", "pnum");
-  -webkit-font-smoothing: antialiased;
-  color: $base-font-color;
-  font-family: $base-font-family;
-  font-size: $base-font-size;
-  line-height: $base-line-height;
-  font-weight: 300;
-}
+@charset 'utf-8';
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/**
+ * Title:
+ *   Typography
+ * Description:
+ *   Styles for headers and all typographic elements
+ * Sections:
+ *    $. Headers
+ *    $. Block elements
+ *    $. Inline elements
+ *    $. Links
+ *
+ * ================================================== */
+
+
+/**
+ * $. Headers
+ * -------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-size: $base-font-size;
   line-height: $heading-line-height;
@@ -26,27 +31,12 @@ h1 {
   .page-title & {
     margin: 0 0 $small-spacing/6;
   }
-  .hp-banner & {
-    font-size: em(72);
-    font-weight: 900;
-    margin-top: 0;
-  }
 }
+
 h2 {
   font-size: em(27);
-  .hp-banner & {
-    line-height: 1.3;
-    margin-bottom: $base-spacing;
-  }
-  .mn-body & {
-    margin-top: $small-spacing;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  .docs &:target {
-    padding-top: em(86, 27);
-  }
 }
+
 h3 {
   font-size: em(24);
   .panel & {
@@ -57,11 +47,37 @@ h3 {
     font-weight: 400;
   }
 }
+
 h4 {
   font-size: em(21);
 }
-h5 { font-size: em(18); }
-h6 { font-size: 1em; }
+
+h5 {
+  font-size: em(18);
+}
+
+h6 {
+  font-size: 1em;
+}
+
+.page-title {
+  padding: em(24) 0 em(12);
+  margin-bottom: em(28);
+  border-bottom: 1px dotted $base-border-color;
+}
+
+.subheader {
+  font-size: em(18);
+  line-height: 1.4;
+  font-style: italic;
+  color: $medium-gray;
+  margin: 0;
+}
+
+
+/**
+ * $. Block elements
+ * -------------------------------------------------- */
 
 p {
   margin: 0 0 $small-spacing;
@@ -81,42 +97,52 @@ p {
   }
 }
 
-%active-nav {
+pre, code {
+  font-family: $mono-font-family;
   font-weight: 400;
-  color: darken($action-color, 15%);
 }
 
-.main-nav { 
-  ul {
-    font-size: 1em;
-    line-height: em(24);
-  }
-  @each $item in $main-nav-items {
-    .#{ $item } & .#{ $item } { @extend %active-nav; }
+pre {
+  margin: $base-spacing 0;
+  padding: em(10) em(15);
+  line-height: 1.3;
+  background-color: #272822;
+  color: #f8f8f8;
+  overflow-x: auto;
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: $base-spacing 0;
+}
+
+
+/**
+ * $. Inline elements
+ * -------------------------------------------------- */
+
+strong {
+  font-weight: 400;
+}
+
+code {
+  padding: .2em;
+  background-color: darken($lightest-gray, 5%);
+  border-radius: 4px;
+  pre & {
+    padding: 0;
+    background-color: transparent;
+    border-radius: none;
   }
 }
 
-.side-nav {
-  h4 {
-    margin-top: 0;
-    font-size: em(18);
-  }
-  ul {
-    margin-bottom: $base-spacing;
-    line-height: 1.75em;
-  }
-  @each $item in $docs-nav-items {
-    .#{ $item } & .#{ $item } { @extend %active-nav; }
-  }
-}
 
-.subheader {
-  font-size: em(18);
-  line-height: 1.4;
-  font-style: italic;
-  color: $medium-gray;
-  margin: 0;
-}
+/**
+ * $. Links
+ * -------------------------------------------------- */
 
 a {
   color: $action-color;
@@ -136,48 +162,5 @@ a {
   &:active,
   &:focus {
     outline: none;
-  }
-}
-
-hr {
-  border-bottom: $base-border;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  margin: $base-spacing 0;
-}
-
-img,
-picture {
-  margin: 0;
-  max-width: 100%;
-}
-
-strong {
-  font-weight: 400;
-}
-
-pre, code {
-  font-family: $mono-font-family;
-  font-weight: 400;
-}
-
-pre {
-  margin: $base-spacing 0;
-  padding: em(10) em(15);
-  line-height: 1.3;
-  background-color: #272822;
-  color: #f8f8f8;
-  overflow-x: auto;
-}
-
-code {
-  padding: .2em;
-  background-color: darken($lightest-gray, 5%);
-  border-radius: 4px;
-  pre & {
-    padding: 0;
-    background-color: transparent;
-    border-radius: none;
   }
 }

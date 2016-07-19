@@ -1,0 +1,22 @@
+.panel {
+  margin: $base-spacing 0;
+  padding: em(18) em(30) em(12);
+  background-color: #fff;
+  border-left: 4px solid $base-border-color;
+
+  &.info {
+    border-color: $info-color;
+    background-color: mix($info-color, #fff, 10%);
+    h3 { color: $info-color; }
+  }
+  &.success {
+    border-color: $success-color;
+    background-color: mix($success-color, #fff, 10%);
+    h3 { color: $success-color; }
+  }
+  &.warning {
+    border-color: $warning-color;
+    background-color: mix($warning-color, #fff, 10%);
+    h3 { color: $warning-color; }
+  }
+}

@@ -1,15 +1,45 @@
-// Bitters 1.0.0
-// http://bitters.bourbon.io
-// Copyright 2013-2015 thoughtbot, inc.
-// MIT License
+@charset 'utf-8';
 
-@import "variables";
+/**
+ * Title:
+ *    Defaults
+ * Description:
+ *    Base styles for the project.
+ * Sections:
+ *    - $. Defaults
+ *
+ * ================================================== */
 
-// Neat Settings -- uncomment if using Neat -- must be imported before Neat
-// @import "grid-settings";
 
-@import "buttons";
-@import "forms";
-@import "lists";
-@import "tables";
-@import "typography";
+
+/**
+ * $. Defaults
+ * -------------------------------------------------- */
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  @include font-feature-settings("kern", "liga", "pnum");
+  -webkit-font-smoothing: antialiased;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  font-weight: 300;
+  color: $base-font-color;
+  background-color: $base-background-color;
+}
+
+iframe {
+  display: block;
+}
+

@@ -1,0 +1,80 @@
+.main-nav {
+  padding-top: em(18);
+  padding-left: em(48);
+  margin-right: 0;
+  ul {
+    display: inline;
+    float: left;
+    &.utility {
+      display: none;
+      float: right;
+    }
+  }
+  li {
+    display: inline;
+    float: left;
+    margin-right: 1.5em;
+    &:last-child {
+      margin-right: 0;
+    }
+    &.manifesto {
+      display: none;
+    }
+  }
+  .utility li {
+    margin-right: 1em;
+  }
+  @include media($medium-screen-up) {
+    @include span-columns(9);
+    padding-left: 0;
+    li {
+      margin-right: 2em;
+    }
+    li.manifesto {
+      display: inline;
+    }
+    ul.utility {
+      display: inline;
+    }
+  }
+  .lt-ie9 & {
+    @include span-columns(9);
+    @include omega;
+    padding-left: 0;
+    li {
+      margin-right: 2em;
+    }
+    ul.utility {
+      display: inline;
+    }
+  }
+}
+
+%active-nav {
+  font-weight: 400;
+  color: darken($action-color, 15%);
+}
+
+.main-nav { 
+  ul {
+    font-size: 1em;
+    line-height: em(24);
+  }
+  @each $item in $main-nav-items {
+    .#{ $item } & .#{ $item } { @extend %active-nav; }
+  }
+}
+
+.side-nav {
+  h4 {
+    margin-top: 0;
+    font-size: em(18);
+  }
+  ul {
+    margin-bottom: $base-spacing;
+    line-height: 1.75em;
+  }
+  @each $item in $docs-nav-items {
+    .#{ $item } & .#{ $item } { @extend %active-nav; }
+  }
+}
