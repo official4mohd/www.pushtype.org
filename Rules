@@ -26,15 +26,16 @@ compile '/docs/*/' do
   layout 'default'
 end
 
-compile %r{/(manifesto/)?} do
-  filter :erb
-  layout 'homepage'
-  layout 'default'
-end
+#compile %r{/(manifesto/)?} do
+#  filter :erb
+#  layout 'homepage'
+#  layout 'default'
+#end
 
 compile '*' do
   unless item.binary?
     filter :erb
+    layout 'page'
     layout 'default'
   end
 end

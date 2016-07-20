@@ -16,6 +16,18 @@
  * $. Flexible images
  * -------------------------------------------------- */
 
+figure {
+  position: relative;
+  margin: 0 0 1em;
+}
+
+figcaption {
+  margin-top: 1em;
+  padding-top: 1em;
+  font-size: em(14);
+  border-top: 1px dotted $base-border-color;
+}
+
 img {
   display: inline-block;
   margin: 0 auto;

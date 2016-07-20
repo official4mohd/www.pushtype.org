@@ -39,13 +39,6 @@ h2 {
 
 h3 {
   font-size: em(24);
-  .panel & {
-    margin-top: 0;
-  }
-  .panel.callout & {
-    font-size: em(18);
-    font-weight: 400;
-  }
 }
 
 h4 {
@@ -60,7 +53,7 @@ h6 {
   font-size: 1em;
 }
 
-.page-title {
+.page-title, .section-title {
   padding: em(24) 0 em(12);
   margin-bottom: em(28);
   border-bottom: 1px dotted $base-border-color;
@@ -151,6 +144,10 @@ a {
 
   img {
     border: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 
   &:active,

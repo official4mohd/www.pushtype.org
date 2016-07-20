@@ -4,19 +4,27 @@
   background-color: #fff;
   border-left: 4px solid $base-border-color;
 
+  h3, h4 {
+    &:first-child {
+      margin-top: 0;
+      font-size: em(18);
+      font-weight: 400;
+    }
+  }
+
   &.info {
     border-color: $info-color;
     background-color: mix($info-color, #fff, 10%);
-    h3 { color: $info-color; }
+    h3, h4 { color: darken($info-color, 15%); }
   }
   &.success {
     border-color: $success-color;
     background-color: mix($success-color, #fff, 10%);
-    h3 { color: $success-color; }
+    h3, h4 { color: $success-color; }
   }
   &.warning {
     border-color: $warning-color;
     background-color: mix($warning-color, #fff, 10%);
-    h3 { color: $warning-color; }
+    h3, h4 { color: $warning-color; }
   }
 }

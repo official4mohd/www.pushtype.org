@@ -6,31 +6,98 @@ main {
 .wrap {
   @include outer-container;
   width: 100%;
-  overflow: auto;
+}
+
+.body {
+  padding: 0 $gutter/2;
+
+  &.section {
+    padding-bottom: $base-spacing;
+    border-bottom: 1px dotted $base-border-color;
+  }
+  &.section:last-of-type {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.main {
+  padding: em(62) 0 em(48);
 }
 
 .row {
   @include row;
 }
 
-.body {
-  padding: 0 $gutter/2;
-}
+.cols {
 
-.main {
-  padding: em(62) 0 em(48) em(48);
+  @for $i from 1 through $grid-columns {
+    &.span-#{ $i } {
+      @include span-columns($i);
+    }
+    &.push-#{ $i } {
+      @include shift($i);
+    }
+    &.pull-#{ $i } {
+      @include shift(-$i);
+    }
+  }
 
   @include media($medium-screen-up) {
-    @include span-columns(9);
-    @include shift(3);
-    padding-left: 0;
+    @for $i from 1 through $grid-columns {
+      &.span-#{ $i }-md {
+        @include span-columns($i);
+      }
+      &.push-#{ $i }-md {
+        @include shift($i);
+      }
+      &.pull-#{ $i }-md {
+        @include shift(-$i);
+      }
+    }
+
+    &.span-6-md {
+      @include omega(2n);
+    }
   }
-  .lt-ie9 & {
-    @include span-columns(9);
-    @include shift(3);
-    @include omega;
-    padding-left: 0;
+
+  @include media($large-screen-up) {
+    @for $i from 1 through $grid-columns {
+      &.span-#{ $i }-lg {
+        @include span-columns($i);
+      }
+      &.push-#{ $i }-lg {
+        @include shift($i);
+      }
+      &.pull-#{ $i }-lg {
+        @include shift(-$i);
+      }
+    }
   }
+
+  @include media($x-large-screen-up) {
+    @for $i from 1 through $grid-columns {
+      &.span-#{ $i }-xl {
+        @include span-columns($i);
+      }
+      &.push-#{ $i }-xl {
+        @include shift($i);
+      }
+      &.pull-#{ $i }-xl {
+        @include shift(-$i);
+      }
+    }
+
+    &.span-6-md {
+      &:nth-child(2n) { margin-right: flex-gutter(12); }
+      &:nth-child(2n+1) { clear: none; }
+    }
+
+    &.span-4-xl {
+      @include omega(3n);
+    }
+  }
+
 }
 
 .ie-end {
