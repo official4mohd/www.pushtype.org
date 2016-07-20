@@ -56,10 +56,6 @@
       border-color: rgba(#fff, 0.35);
     }
 
-    .icon-chevron {
-      fill: #fff;
-    }
-
 
     @include media($large-screen-up) {
       figcaption {
@@ -77,22 +73,5 @@
         margin: 2em 0 0 1em;
       }
     }
-  }
-}
-
-
-.hp-main {
-  padding: em(62) 0 em(48);
-  overflow: auto;
-}
-
-
-
-.hp-col {
-  @include media($medium-screen-up) {
-    @include span-columns(6);
-  }
-  .lt-ie9 & {
-    @include span-columns(6);
   }
 }
