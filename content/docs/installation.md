@@ -21,6 +21,12 @@ Assuming you have a Rails app ready to go, add the following line to the `Gemfil
     #!ruby
     gem 'push_type'
 
+<div class="panel callout warning">
+  <h3>Rails 5</h3>
+  <p>If you want to try PushType with Rails 5, use the latest beta version:</p>
+  <p><code>gem 'push_type', '>= 0.9.0.beta.1'</code></p>
+</div>
+
 Then execute from the terminal:
 
     #!shell

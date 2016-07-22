@@ -28,7 +28,7 @@ module SiteHelpers
   end
 
   def has_comments?
-    ENV['RACK_ENV'] == 'production' && @item[:comments]
+    @item[:comments]
   end
 
   def share_manifesto_link(network)
