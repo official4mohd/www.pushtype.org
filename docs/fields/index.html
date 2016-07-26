@@ -122,10 +122,62 @@
   <li>If PushType’s built in set of custom fields don’t quite offer the flexibility you need, then it’s simple to customise the behaviour of existing fields or even build your own!</li>
 </ol>
 
+<h2 id="available-field-types">Available field types</h2>
+
 <div class="panel callout warning">
   <h3>Incomplete documentation</h3>
-  <p>We're working on this section of the documentation. It'll be with you soon.</p>
+  <p>We're working on this section of the documentation. The example below shows all of the field types built in to PushType.</p>
 </div>
+
+<pre><code class="language-ruby highlight"><span class="k">class</span> <span class="nc">Page</span> <span class="o">&lt;</span> <span class="no">PushType</span><span class="o">::</span><span class="no">Node</span>
+
+  <span class="c1"># Basic field types</span>
+  <span class="n">field</span> <span class="ss">:basic_1</span><span class="p">,</span> <span class="ss">:string</span>   <span class="c1"># =&gt; Provides a text field</span>
+  <span class="n">field</span> <span class="ss">:basic_2</span><span class="p">,</span> <span class="ss">:text</span>     <span class="c1"># =&gt; Provides a textarea</span>
+  <span class="n">field</span> <span class="ss">:basic_3</span><span class="p">,</span> <span class="ss">:wysiwyg</span>  <span class="c1"># =&gt; Provides a WYSIWYG editor</span>
+  <span class="n">field</span> <span class="ss">:basic_4</span><span class="p">,</span> <span class="ss">:markdown</span> <span class="c1"># =&gt; Provides a Markdown editor, renders the value as HTML</span>
+  <span class="n">field</span> <span class="ss">:basic_5</span><span class="p">,</span> <span class="ss">:number</span>   <span class="c1"># =&gt; Provides a number field</span>
+  <span class="n">field</span> <span class="ss">:basic_6</span><span class="p">,</span> <span class="ss">:boolean</span>  <span class="c1"># =&gt; Provides a checkbox</span>
+  <span class="n">field</span> <span class="ss">:basic_7</span><span class="p">,</span> <span class="ss">:date</span>     <span class="c1"># =&gt; Provides a datepicker</span>
+  <span class="n">field</span> <span class="ss">:basic_8</span><span class="p">,</span> <span class="ss">:time</span>     <span class="c1"># =&gt; Provides a timepicker</span>
+
+  <span class="c1"># Select fields provide a select box</span>
+  <span class="n">field</span> <span class="ss">:sel_1</span><span class="p">,</span> <span class="ss">:select</span><span class="p">,</span> <span class="ss">choices: </span><span class="p">[</span><span class="s1">'foo'</span><span class="p">,</span> <span class="s1">'bar'</span><span class="p">,</span> <span class="s1">'baz'</span><span class="p">]</span>
+  <span class="c1"># Can also accept choices as a proc</span>
+  <span class="n">field</span> <span class="ss">:sel_2</span><span class="p">,</span> <span class="ss">:select</span><span class="p">,</span> <span class="ss">choices: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="no">Tag</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:name</span><span class="p">)</span> <span class="p">},</span> <span class="ss">multiple: </span><span class="kp">true</span>
+
+  <span class="c1"># Tag lists</span>
+  <span class="n">field</span> <span class="ss">:tags</span><span class="p">,</span> <span class="ss">:tag_list</span>
+
+  <span class="c1"># Repeating fields allow many values to be added which are stored</span>
+  <span class="c1"># internally as an Array</span>
+  <span class="n">field</span> <span class="ss">:notes</span><span class="p">,</span> <span class="ss">:repeater</span><span class="p">,</span> <span class="ss">repeats: :text</span>
+  <span class="n">field</span> <span class="ss">:contacts</span><span class="p">,</span> <span class="ss">:matrix</span> <span class="k">do</span>
+    <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:string</span>
+    <span class="n">field</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">:number</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Relation fields create associations</span>
+  <span class="c1"># The name of the field *must* end in `_id`, and the relation class</span>
+  <span class="c1"># is assumed from the field name</span>
+  <span class="n">field</span> <span class="ss">:article_id</span><span class="p">,</span> <span class="ss">:relation</span> <span class="c1"># =&gt; Associates with `Article` class</span>
+  <span class="c1"># Although the relation class can be passed with the to option</span>
+  <span class="n">field</span> <span class="ss">:foo_id</span><span class="p">,</span> <span class="ss">:relation</span><span class="p">,</span> <span class="ss">to: :article</span><span class="p">,</span> <span class="ss">scope: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">published</span> <span class="p">}</span>
+
+  <span class="c1"># The asset field is a kind of relation field</span>
+  <span class="n">field</span> <span class="ss">:image</span><span class="p">,</span> <span class="ss">:asset</span>      <span class="c1"># =&gt; Provides  an asset picker</span>
+
+  <span class="c1"># Structure fields allow classes with their own logic to be embeded as fields</span>
+  <span class="n">field</span> <span class="ss">:person</span><span class="p">,</span> <span class="ss">:structure</span> <span class="k">do</span>
+    <span class="n">field</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:string</span>
+    <span class="n">field</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">:number</span>
+
+    <span class="k">def</span> <span class="nf">adult?</span>
+      <span class="n">age</span> <span class="o">&amp;&amp;</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+<span class="k">end</span></code></pre>
 
 
       
