@@ -79,7 +79,7 @@ So far, so predictable. But here's where it gets cool:
       field :foo_id, :relation, to: :article, scope: -> { published }
 
       # The asset field is a kind of relation field
-      field :image, :asset      # => Provides  an asset picker
+      field :image_id, :asset      # => Provides  an asset picker
 
       # Structure fields allow classes with their own logic to be embeded as fields
       field :person, :structure do
