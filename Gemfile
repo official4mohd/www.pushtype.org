@@ -11,6 +11,7 @@ gem 'kramdown'
 gem 'rouge'
 gem 'nokogiri'
 gem 'rmagick'
+gem 'builder'
 
 # Assets dependencies
 gem 'nanoc-sprockets'

@@ -1,6 +1,7 @@
 ---
 title:    Installation
 subtitle: Get started and install the PushType RubyGem.
+priority: 0.6
 comments: true
 ---
 

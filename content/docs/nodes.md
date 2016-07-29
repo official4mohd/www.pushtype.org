@@ -1,5 +1,6 @@
 ---
 title:    Nodes
+priority: 0.6
 comments: true
 ---
 

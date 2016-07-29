@@ -1,6 +1,7 @@
 ---
 title:    Introduction
 subtitle: Find out what PushType is and how it can help you.
+priority: 0.8
 comments: true
 ---
 

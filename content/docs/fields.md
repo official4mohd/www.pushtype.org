@@ -1,5 +1,6 @@
 ---
 title:    Fields
+priority: 0.6
 ---
 
 Custom field types are where the magic happens in PushType. By applying different fields to node objects, content can be modelled in boundless ways. A few lines of code, no database migrations, no forms to create - it just works!

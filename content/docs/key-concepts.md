@@ -1,5 +1,6 @@
 ---
 title:    Key concepts
+priority: 0.6
 comments: true
 ---
 

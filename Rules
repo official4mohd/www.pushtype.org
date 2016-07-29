@@ -26,11 +26,9 @@ compile '/docs/*/' do
   layout 'default'
 end
 
-#compile %r{/(manifesto/)?} do
-#  filter :erb
-#  layout 'homepage'
-#  layout 'default'
-#end
+compile '/sitemap/' do
+  filter :erb
+end
 
 compile '*' do
   unless item.binary?
@@ -42,6 +40,10 @@ end
 
 route '/assets/*/' do
   Sprockets::Helpers.asset_path(item[:filename])
+end
+
+route '/sitemap/' do
+  item.identifier.chop + '.xml'
 end
 
 route '*' do

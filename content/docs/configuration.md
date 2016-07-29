@@ -1,5 +1,6 @@
 ---
 title:    Configuration
+priority: 0.6
 comments: true
 ---
 
