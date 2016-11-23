@@ -72,7 +72,7 @@ data_sources:
       - modernizr.js
     path: assets
     assets_additionnal_paths:
-      - bower_components
+      - node_modules
     css_compressor: scss
     js_compressor: uglifier
 

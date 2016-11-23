@@ -4,6 +4,6 @@
 .rvmrc
 .sass-cache
 crash.log
-bower_components/
+node_modules/
 output/
 tmp/

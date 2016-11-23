@@ -1,0 +1,15 @@
+{
+  "name": "www.pushtype.org",
+  "version": "0.1.0",
+  "description": "PushType website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pushtype/www.pushtype.org.git"
+  },
+  "author": "Aaron Russell",
+  "license": "MIT",
+  "homepage": "http://www.pushtype.org",
+  "dependencies": {
+    "jquery": "1.11.3"
+  }
+}
