@@ -20,12 +20,7 @@ By default, when visiting the root URL of your PushType site (the homepage), the
 
     #!ruby
     # Set the homepage slug
-    config.home_slug = 'landing_page'
-
-The config setting can be overridden in `config/routes.rb` by passing the `:home` option:
-
-    #!ruby
-    mount_push_type home: 'blog'
+    config.home_slug = 'blog'
 
 ## Unexposed nodes
 

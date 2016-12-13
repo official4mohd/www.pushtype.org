@@ -45,7 +45,7 @@ I'm guessing that didn't even take five minutes, right?
 
 At this point, you can fire up your application and start poking around in the admin UI:
 
-    http://localhost:3000/push_type
+    http://localhost:3000/admin
 
 However, you won't be able to create any content yet. You need to start generating node types.
 
