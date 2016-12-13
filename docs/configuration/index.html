@@ -97,11 +97,7 @@
 <p>By default, when visiting the root URL of your PushType site (the homepage), the <code>NodesFrontEndContoller</code> will look for a node with the slug <code>home</code>. This behaviour can be changed by setting a different value for the <code>home_slug</code> option.</p>
 
 <pre><code class="language-ruby highlight"><span class="c1"># Set the homepage slug</span>
-<span class="n">config</span><span class="p">.</span><span class="nf">home_slug</span> <span class="o">=</span> <span class="s1">'landing_page'</span></code></pre>
-
-<p>The config setting can be overridden in <code>config/routes.rb</code> by passing the <code>:home</code> option:</p>
-
-<pre><code class="language-ruby highlight"><span class="n">mount_push_type</span> <span class="ss">home: </span><span class="s1">'blog'</span></code></pre>
+<span class="n">config</span><span class="p">.</span><span class="nf">home_slug</span> <span class="o">=</span> <span class="s1">'blog'</span></code></pre>
 
 <h2 id="unexposed-nodes">Unexposed nodes</h2>
 
