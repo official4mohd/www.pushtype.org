@@ -12,7 +12,7 @@ This tutorial will guide you through the simple process of installing PushType i
 PushType takes advantage of modern features of PostgreSQL, which in turn requires a recent version of Rails.
 
 * Rails 4.2+
-* PostgreSQL 9.4
+* PostgreSQL 9.4, as well as the [contrib modules](https://www.postgresql.org/docs/9.1/static/contrib.html) for the [uuid-ossp extension](https://www.postgresql.org/docs/9.1/static/uuid-ossp.html)
 * ImageMagick
 
 ## Installation
