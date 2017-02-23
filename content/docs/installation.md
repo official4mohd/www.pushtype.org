@@ -20,7 +20,7 @@ PushType takes advantage of modern features of PostgreSQL, which in turn require
 Assuming you have a Rails app ready to go, add the following line to the `Gemfile`:
 
     #!ruby
-    gem 'push_type'
+    gem 'push_type', '~> 0.10'
 
 Then execute from the terminal:
 
